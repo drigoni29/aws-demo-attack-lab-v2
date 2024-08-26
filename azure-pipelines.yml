@@ -6,7 +6,8 @@ trigger:
   #     - app/src/*
   
 pool:
-    vmImage: ubuntu-latest
+    name: drigoni-agent
+   # vmImage: ubuntu-latest
   
 variables:
   - group: aws-demo-attack-lab-v2
