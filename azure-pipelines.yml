@@ -10,7 +10,9 @@ pool:
   
 variables:
   - group: aws-demo-attack-lab-v2
-  
+
+lockBehavior: sequential
+
 stages:
     - stage: iac_validation
       condition: always()
@@ -124,7 +126,7 @@ stages:
         - iac_scan
       jobs:
         - job: iac_deploy
-          displayName:  Terraform Apply
+          displayName:  Terraform Init
           steps:
           - task: TerraformTaskV4@4
             displayName: Terraform Init
