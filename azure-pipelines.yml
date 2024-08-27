@@ -38,7 +38,14 @@ stages:
             inputs:
               provider: 'aws'
               command: 'destroy'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
+              environmentServiceNameAWS: '$(backendServiceAWS)'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'  
+          # - task: TerraformTaskV4@4
+          #   displayName: Terraform Destroy
+          #   inputs:
+          #     provider: 'aws'
+          #     command: 'destroy'
+          #     workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
     # - stage: iac_scan
     #   condition: always()
     #   displayName: Code Scan
